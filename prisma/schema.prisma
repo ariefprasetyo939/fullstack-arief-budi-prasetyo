@@ -18,6 +18,7 @@ model Folder {
   id   Int    @id @default(autoincrement())
   name String
   parentId Int? //nullable because root folder has no parent
+  isOpen Boolean @default(false)
 
   //relation to parent folder
   parent Folder? @relation("FolderHierarchy", fields: [parentId], references: [id])
